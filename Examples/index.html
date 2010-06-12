@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>Fx Demo</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript"></script>
+		<script src="../Source/Fx.Spring.js" type="text/javascript"></script>
+		<script src="Fx.Spring.Demo.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="Fx.Spring.Demo.css" type="text/css" />
+	</head>
+	<body>
+		<div id="mangosteen-container"	>
+			<div id="mangosteen-controls">
+				<div class="col">
+					<div class="label">
+						<label for="fxTransition">Transition</label>:
+					</div>
+					<select id="fxTransition">
+						<option value="Spring">Spring</option>
+						<option value="linear">Linear</option>
+						<option value="Quad">Quadratic</option>
+						<option value="Cubic">Cubic</option>
+						<option value="Quart">Quartic</option>
+						<option value="Quint">Quintic</option>
+						<option value="Sine">Sinusoidal</option>
+						<option value="Expo">Exponential</option>
+						<option value="Circ">Circular</option>
+						<option value="Bounce">Bouncing</option>
+						<option value="Back">Back</option>
+						<option value="Elastic">Elastic</option>
+					</select>
+				</div>
+				<div class="col time" id="ease">
+					<div class="label">
+						<label for="fxEase">Easing</label>:
+					</div>
+					<select id="fxEase">
+						<option value="easeIn">easeIn</option>
+						<option value="easeOut">easeOut</option>
+						<option value="easeInOut">easeInOut</option>
+					</select>
+				</div>
+				<div class="col time">
+					<div class="label">
+						<label for="duration">Duration(ms)</label>:
+					</div>
+					<input type="text" id="fxDuration" value="300" />
+				</div>
+
+				<div class="col physics">
+					<div class="label">
+						<label for="stiffness">Stiffness</label>:
+					</div>
+					<input type="text" id="fxStiffness" value="70" />
+				</div>
+
+				<div class="col physics">
+					<div class="label">
+						<label for="friction">Friction</label>:
+					</div>
+					<input type="text" id="fxFriction" value="10" />
+				</div>
+			</div>
+			<img src="mangosteen.jpg" id="mangosteen"/>
+		</div>
+	</body>
+</html>
