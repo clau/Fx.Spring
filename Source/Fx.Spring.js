@@ -38,11 +38,10 @@ Fx.Spring = new Class({
 
 	step: function() {
 		if (this.inMotion) {
-			this.acceleration = this.options.stiffness*(this.to-this.from) - this.options.friction*this.velocity;
-			this.velocity += this.acceleration*this.dt;
-			this.from += this.velocity*this.dt;
-			this.inMotion = Math.abs(this.acceleration) >= this.threshold ||
-							Math.abs(this.velocity) >= this.threshold;
+			this.acceleration = this.options.stiffness * (this.to-this.from) - this.options.friction * this.velocity;
+			this.velocity += this.acceleration * this.dt;
+			this.from += this.velocity * this.dt;
+			this.inMotion = Math.abs(this.acceleration) >= this.threshold || Math.abs(this.velocity) >= this.threshold;
 			this.fireEvent('motion', this.from);
 		} else {
 			this.complete();
@@ -50,26 +49,23 @@ Fx.Spring = new Class({
 	},
 
 	complete: function() {
-		if (this.stopTimer()) {
-			this.velocity = 0;
-			this.acceleration = 0;
-			this.from = this.to;
-			this.fireEvent('motion', this.from);
-			this.onComplete();
-		}
+		if (!this.isRunning()) return this;
+
+		this.velocity = 0;
+		this.acceleration = 0;
+		this.from = this.to;
+		this.inMotion = false;
+		this.stop();
 		return this;
 	},
 
 	start: function(from, to) {
 		this.from = from;
 		this.to = to;
+		if (this.isRunning()) return this;
 
-		if (!this.timer) {
-			this.inMotion = true;
-			this.onStart();
-			this.startTimer();
-		}
-
+		this.inMotion = true;
+		this.parent(from, to);
 		return this;
 	},
 
